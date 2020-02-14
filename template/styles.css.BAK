@@ -1,0 +1,359 @@
+/*	(c)2014 Wolf and Raven Inc.      --------------------------------------------------------- */
+	--------------------------- 
+
+INTRO:
+-----
+Welcome to our ugly css file. If you're reading this, you are probably hoping to adapt
+something in here for your own purpose. The focus here is on functionality, so if something
+accidentally looks pretty to you, then please at least change the colours, spacing, gradients
+and whatever else so your website doesn't end up looking exactly like ours. We're hackers - not
+designers, so expect a few unexpected bumps along the way. 
+
+LOOK and FEEL:
+-------------
+As consultants, we write a brazillion whitepapers. Unfortunately a lot of what we write is 
+subsequently only available to one organization when it may be useful to others. We've always
+been about sharing, as demonstrated by our free licensing of Offensive Operations Model, and
+it seemed fitting that we continue to release new content to the world. 
+
+
+CONTENT COPYRIGHTS and LICENSING:
+--------------------------------
+We don't claim any copyright for the HTML, PHP, JAVASCRIPT and CSS code used on this site. In
+those areas, we're hardly blazing any new trails. But we do own the content, and take a hard
+stance on maintaining the ownership.
+
+To use any content, review the CONTENT LICENGING AGREEMENT available in the Download area at
+http://www.penetrationtest.com/downloads.php. We will soon be adding a whitepaper on how we
+search out and issue DMCA takedown notices to sites using our content without following our 
+super-easy licensing.
+
+Don't steal our content. We want to continue providing free (as in beer) information, and
+can only do that if you play your part, too.
+
+CSS FUNCTIONS LIST:
+------------------
+
+This section describes each css function.
+
+HTML tweaks:
+-----------
+body		- Maintains font consistency throughout the site
+
+blockquote	- Makes blockquotes look a lot like they do in our whitepapers
+
+hr		- hr.tiny for accent lines. hr.thick to separate major sections
+
+footer		- Controls what the bottom of the page looks like
+
+Layout:
+------
+content		- This is the context wrapper for all pages. It is found in the
+		  header include, and closed in the footer include, to ensure
+		  all pages are rendered the same.
+
+
+
+navigator       - Everything about the grey bar at the top. The a tag changes the
+		  links, and h1 changes the www.PENETRATIONTEST.com across the top.
+
+textcontainer	- oops found a bug already - isn't closed... fix it
+
+singlecontent	- Text that spans across the whole screen.
+
+dualcontent	- Wide left-side container for 2 column spread. Content is both left and
+		  right justified. h1 h2 and h3 tags left-justified.
+dualcontent2	- Thinner ight-side container. Left-justified.
+
+socialicon	- For now this just keeps the social site icons a consistent size.
+
+contentbox	- Puts a single-pixel box around the text. Used on front page for the
+		  "boutique firm" blurb.
+
+singlecolpointlist
+		- Indented point list for use in singlecontent container
+
+ul.box		- Makes li items in an ul look like sticky notes  (XXX attribution needed)
+
+marketquote	- Centers and italicizes text. Used on front page, but may be removed in future
+
+
+TODO: 
+----
+
+Fix textcontainer use in index.php. That is probably why the ul.box bug happens.
+
+Improve navigator to allow insert of left-justified logo
+
+The ul.box overlaps the navigator in some cases. 
+
+
+-------------------------------------------------------------------------------------------------- */
+
+/* Body Stuff. Just sets the font business */
+body {
+	margin: 0;
+	bottom:0;
+	height: 100%;
+	padding: 0;
+	font-family: "Avenir Next", Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 22px;
+	color: #333;
+	background-color: #fff;
+}
+
+
+
+/* Blockquote with grey side line, light grey box, nice quote character -------------------------- */
+blockquote {
+	background: #f9f9f9;
+	border-left: 10px solid %ccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+	color: #ccc;
+	content: openquote;
+	font-size: 4em;
+	line-height: 0.1em;
+	margin-right: 0.25em;
+	vertical-align: -0.4em;
+}
+blockquote p {
+	display: inline;
+}
+
+
+
+
+/* Horizontal line separators. Use .tiny for details and .thick for between major sections */
+hr.tiny {
+	border: 0;
+	height: 0;
+	padding-bottom: 4px;
+	border-top: 1px solid rgba(0, 0, 0, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+hr.thick {
+        border: 0;
+        height: 0;
+        padding-bottom: 4px;
+        border-top: 3px solid rgba(0, 0, 0, 0.4);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+
+
+
+/* The grey bar across the top */
+#navigator {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	color: #ffffff;
+	height: 80px;
+	text-align: center;
+	padding-bottom: 25px;
+	-webkit-box-shadow: 0px 0px 8px 0px #000000;
+	-moz-box-shadow: 0px 0px 8px 0px #000000;
+	box-shadow: 0px 0px 8px 0px #000000;
+	/* transparent background */
+	background-color: rgba(15, 15, 15, 0.8);
+	color: rgba(15, 15, 15, 0.8);
+}
+#navigator a {
+	font-size: 20px;
+	padding-left: 12px;
+	padding-right: 12px;
+	color: white;
+	text-decoration: none;
+}
+#navigator a:hover {
+	color: #fff0be;
+	font-size: 20px;
+	text-shadow:0 0 1px white;
+} 
+#navigator h1 {
+        padding-above: 20px;
+        font-family: "Lucidia Console", Lucidia, sans-serif;
+	color: #CCFFFF;
+        font-style: italic;
+	text-shadow: 2px 2px #000000;
+}
+
+
+
+/* Set the social icon size. May come in handy for other formatting, too.  */
+#socialicon {
+	width: 46px;
+	height; 46px;
+}
+
+
+
+#content {
+        width: 1000px;
+        padding-top: 100px;
+        padding-bottom: 30px;
+        margin-left: auto;
+        margin-right: auto; 
+}
+
+
+#contentbox {
+        border: 1px solid gray;
+        padding: 20px;
+	padding-left: 25px;
+        border-radius: 4px;
+}
+
+
+#marketquote {
+        text-align: center;
+        font-style: italic;
+        margin-top: 15px;
+        margin-bottom: 15px;
+}
+
+
+
+#singlecontent {
+	width: 900px;
+	padding-left: 25px; 
+}
+
+#textcontainer
+{
+	float: left;
+	width: 100%;
+/*	background: #FFF xurl(layout-two-liquid-background.gif) repeat-y 68% 0; */
+}
+
+#dualcontent
+{
+	clear: left;
+	float: left;
+	width: 59%;
+	padding: 20px 0;
+	margin: 0 0 0 4%;
+	display: inline;
+	text-align: justify;
+	text-justify: inter-word;
+}
+#dualcontent h1 { margin: 0; }
+#dualcontent h2 { margin: 0; }
+#dualcontent h3 { margin: 0; }
+#dualcontent2
+{
+	float: right;
+	width: 30%;
+	padding: 20px 0;
+	margin: 0 3% 0 0;
+	display: inline;
+}
+
+
+
+
+
+ul.box {
+	position: relative;
+	z-index: 1; /* prevent shadows falling behind containers with backgrounds */
+	overflow: hidden;
+	list-style: none;
+	margin: 0;
+	padding-left: 0;
+	padding-right: 0;
+        padding-top: 10px;
+	padding-bottom: 0;
+}
+ul.box li {
+	position: relative;
+	float: left;
+	width: 300px;
+	height: 165px;
+	padding: 0;
+	border: 0px;
+	border-radius:4px;
+	margin: 0 32px 32px 0;
+	/* background: #EEE8AA; */
+	background: #f6e8b7;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.27), 0 0 40px rgba(0, 0, 0, 0.06) inset; 
+}
+ul.box li:before,
+ul.box li:after {
+	content: '';
+	z-index: -1;
+	position: absolute;
+	left: 10px;
+	bottom: 10px;
+	width: 70%;
+	max-width: 300px; /* avoid rotation causing ugly appearance at large container widths */
+	max-height: 100px;
+	height: 55%;
+	-webkit-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+	-webkit-transform: skew(-15deg) rotate(-6deg);
+	-moz-transform: skew(-15deg) rotate(-6deg);
+	-ms-transform: skew(-15deg) rotate(-6deg);
+	-o-transform: skew(-15deg) rotate(-6deg);
+	transform: skew(-15deg) rotate(-6deg); 
+}
+ul.box li:after {
+	left: auto;
+	right: 10px;
+	-webkit-transform: skew(15deg) rotate(6deg);
+	-moz-transform: skew(15deg) rotate(6deg);
+	-ms-transform: skew(15deg) rotate(6deg);
+	-o-transform: skew(15deg) rotate(6deg);
+	transform: skew(15deg) rotate(6deg); 
+}
+
+
+ul.singlecolpointlist {
+	margin: 45px;
+	width: 76%;
+}
+ul.singlecolpointlist li {
+	       margin: 0 20px 20px 0;
+}
+
+
+#footer {
+	position: absolute;
+	bottom: 0;
+}
+.page-wrap {
+	min-height: 100%;
+	margin-bottom: -35px; 
+}
+.page-wrap:after {
+	content: "";
+	display: block;
+}
+.site-footer, .page-wrap:after {
+	height: 35px; 
+}
+.site-footer {
+        font-size: 13px;
+	padding-top: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        -webkit-box-shadow: 0px 0px 8px 0px #000000;
+        -moz-box-shadow: 0px 0px 8px 0px #000000;
+        box-shadow: 0px 0px 8px 0px #000000;
+        /* transparent background */
+        background-color: rgba(15, 15, 15, 0.8);
+        color: rgba(15, 15, 15, 0.8);
+}
+.site-footer p {
+	color: white;
+	text-align: right;
+	line-height: 4px;
+}
